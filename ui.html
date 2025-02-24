@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .background-rectangle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            z-index: 0;
+        }
+
+        .topnav {
+            background-color: #333;
+            overflow: visible;
+            position: relative;
+        }
+
+        .topnav a, .dropdown {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .topnav a:hover, .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            top: 50px;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <title>Digital Logic Study Companion</title>
+</head>
+<body>
+<div class="background-rectangle"></div>
+<div class="topnav">
+    <div class="dropdown">
+        <a class="active" href="#home">Home</a>
+    </div>
+    <div class="dropdown">
+        <a class="dropbtn" href="#binary" onclick="toggleDropdown(event)">Binary</a>
+        <div class="dropdown-content">
+            <a href="#binary1">Conversion</a>
+            <a href="#binary2">Representation</a>
+            <a href="#binary3">Integer Arithmetic</a>
+            <a href="#binary4">Fixed Point Arithmetic</a>
+            <a href="#binary5">Floating Point Arithmetic</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a class="dropbtn" href="#com_logic" onclick="toggleDropdown(event)">Combinational Logic</a>
+        <div class="dropdown-content">
+            <a href="#com_logic1">Truth Tables</a>
+            <a href="#com_logic2">Boolean Algebra</a>
+            <a href="#com_logic3">K-maps</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a class="dropbtn" href="#com_components" onclick="toggleDropdown(event)">Combinational Components</a>
+        <div class="dropdown-content">
+            <a href="#com_components1">Gate</a>
+            <a href="#com_components2">Switch/LED</a>
+            <a href="#com_components3">Decoder/Encoder</a>
+            <a href="#com_components4">(De)Multiplexer</a>
+            <a href="#com_components5">Comparator</a>
+            <a href="#com_components6">Generator/Checker</a>
+            <a href="#com_components7">Adder</a>
+            <a href="#com_components8">Array Multiplier</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a class="dropbtn" href="#seq_components" onclick="toggleDropdown(event)">Sequential Components</a>
+        <div class="dropdown-content">
+            <a href="#seq_components1">Latch</a>
+            <a href="#seq_components2">Delay/Flip-Flop</a>
+            <a href="#seq_components3">Clock</a>
+            <a href="#seq_components4">Counter</a>
+            <a href="#seq_components5">Shift Register</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a class="dropbtn" href="#seq_apps" onclick="toggleDropdown(event)">Sequential Apps</a>
+        <div class="dropdown-content">
+            <a href="#seq_apps1">Finite State Machine</a>
+            <a href="#seq_apps2">Dataflow/Control Flow</a>
+            <a href="#seq_apps3">FSM</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a class="dropbtn" href="#arch" onclick="toggleDropdown(event)">Arch</a>
+        <div class="dropdown-content">
+            <a href="#arch1">Memory Type</a>
+            <a href="#arch2">Memory Arch</a>
+            <a href="#arch3">Instruction Set</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleDropdown(event) {
+        event.preventDefault();
+
+        // Close all dropdowns
+        const dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+            dropdowns[i].style.display = 'none';
+        }
+
+        // Toggle the clicked dropdown
+        const dropdownContent = event.target.nextElementSibling;
+        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            const dropdowns = document.getElementsByClassName("dropdown-content");
+            for (let i = 0; i < dropdowns.length; i++) {
+                const openDropdown = dropdowns[i];
+                if (openDropdown.style.display === 'block') {
+                    openDropdown.style.display = 'none';
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
